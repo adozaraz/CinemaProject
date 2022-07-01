@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://com.company.cinemaproject/menu.application" insertBefore="administration">
+        <item screen="User.browse" caption="msg://com.company.cinemaproject.screen.user/UserBrowse.caption"/>
+        <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Theater.browse" caption="msg://com.company.cinemaproject.screen.theater/theaterBrowse.menu"/>
+        <item screen="Film.browse" caption="msg://com.company.cinemaproject.screen.film/filmBrowse.menu"/>
+        <item screen="Seat.browse" caption="msg://com.company.cinemaproject.screen.seat/seatBrowse.menu"/>
+        <item screen="Session_.browse" caption="msg://com.company.cinemaproject.screen.session/sessionBrowse.menu"/>
+        <item screen="Ticket.browse" caption="msg://com.company.cinemaproject.screen.ticket/ticketBrowse.menu"/>
+        <item screen="Client.browse" caption="msg://com.company.cinemaproject.screen.client/clientBrowse.menu"/>
+    </menu>
+
+</menu-config>

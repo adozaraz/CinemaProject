@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="CinemaProject">
+        <createTable tableName="CLIENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CLIENT"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="CinemaProject">
+        <createTable tableName="FILM">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_FILM"/>
+            </column>
+            <column name="DESCRIPTION" type="CLOB"/>
+            <column name="DURATION" type="INT"/>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="CinemaProject">
+        <createTable tableName="SEAT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SEAT"/>
+            </column>
+            <column name="THEATER_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROW_" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PLACE" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DEFAULT_COST" type="INT"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="CinemaProject">
+        <createTable tableName="SESSION_">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SESSION_"/>
+            </column>
+            <column name="THEATER_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FILM_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TIME_START" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TIME_STOP" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="CinemaProject">
+        <createTable tableName="THEATER">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_THEATER"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRIPTION" type="CLOB"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="CinemaProject">
+        <createTable tableName="TICKET">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TICKET"/>
+            </column>
+            <column name="SESSION_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SEAT_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="COST" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CLIENT_ID" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="CinemaProject">
+        <createIndex indexName="IDX_SEAT_THEATER_ID" tableName="SEAT">
+            <column name="THEATER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="THEATER_ID" baseTableName="SEAT" constraintName="FK_SEAT_ON_THEATER"
+                                 referencedColumnNames="ID" referencedTableName="THEATER"/>
+    </changeSet>
+    <changeSet id="8" author="CinemaProject">
+        <createIndex indexName="IDX_SESSION_FILM_ID" tableName="SESSION_">
+            <column name="FILM_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="FILM_ID" baseTableName="SESSION_" constraintName="FK_SESSION__ON_FILM"
+                                 referencedColumnNames="ID" referencedTableName="FILM"/>
+    </changeSet>
+    <changeSet id="9" author="CinemaProject">
+        <createIndex indexName="IDX_SESSION_THEATER_ID" tableName="SESSION_">
+            <column name="THEATER_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="THEATER_ID" baseTableName="SESSION_"
+                                 constraintName="FK_SESSION__ON_THEATER" referencedColumnNames="ID"
+                                 referencedTableName="THEATER"/>
+    </changeSet>
+    <changeSet id="10" author="CinemaProject">
+        <createIndex indexName="IDX_TICKET_CLIENT_ID" tableName="TICKET">
+            <column name="CLIENT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="CLIENT_ID" baseTableName="TICKET" constraintName="FK_TICKET_ON_CLIENT"
+                                 referencedColumnNames="ID" referencedTableName="CLIENT"/>
+    </changeSet>
+    <changeSet id="11" author="CinemaProject">
+        <createIndex indexName="IDX_TICKET_SEAT_ID" tableName="TICKET">
+            <column name="SEAT_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="SEAT_ID" baseTableName="TICKET" constraintName="FK_TICKET_ON_SEAT"
+                                 referencedColumnNames="ID" referencedTableName="SEAT"/>
+    </changeSet>
+    <changeSet id="12" author="CinemaProject">
+        <createIndex indexName="IDX_TICKET_SESSION_ID" tableName="TICKET">
+            <column name="SESSION_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="SESSION_ID" baseTableName="TICKET"
+                                 constraintName="FK_TICKET_ON_SESSION" referencedColumnNames="ID"
+                                 referencedTableName="SESSION_"/>
+    </changeSet>
+</databaseChangeLog>

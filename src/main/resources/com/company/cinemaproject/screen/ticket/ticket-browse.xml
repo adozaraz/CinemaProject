@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://ticketBrowse.caption"
+        focusComponent="ticketsTable">
+    <data readOnly="true">
+        <collection id="ticketsDc"
+                    class="com.company.cinemaproject.entity.Ticket">
+            <fetchPlan extends="_base">
+                <property name="session" fetch="AUTO" fetchPlan="_base">
+                    <property name="theater" fetch="AUTO" fetchPlan="_base"/>
+                </property>
+                <property name="seat" fetch="JOIN" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="ticketsDl">
+                <query>
+                    <![CDATA[select e from Ticket e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ticketsTable" spacing="true">
+        <filter id="filter"
+                dataLoader="ticketsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="ticketsTable"
+                    width="100%"
+                    dataContainer="ticketsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="session.theater"/>
+                <column id="session.film.name"/>
+                <column id="session.film.description"/>
+                <column id="session.timeStart"/>
+                <column id="session.timeStop"/>
+                <column id="seat.row"/>
+                <column id="seat.place"/>
+                <column id="cost"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="ticketsTable.create"/>
+                <button id="editBtn" action="ticketsTable.edit"/>
+                <button id="removeBtn" action="ticketsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
