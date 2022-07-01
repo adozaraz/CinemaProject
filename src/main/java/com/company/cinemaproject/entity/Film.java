@@ -29,7 +29,7 @@ public class Film {
     private String description;
 
     @Column(name = "DURATION")
-    private Integer duration;
+    private Long duration;
 
     @InstanceName
     @Column(name = "NAME", nullable = false)
@@ -66,6 +66,14 @@ public class Film {
     @Column(name = "LAST_MODIFIED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
+
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+
+    public Long getDuration() {
+        return duration;
+    }
 
     public Date getLastModifiedDate() {
         return lastModifiedDate;
@@ -121,14 +129,6 @@ public class Film {
 
     public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
-    }
-
-    public Integer getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Integer duration) {
-        this.duration = duration;
     }
 
     public String getDescription() {
