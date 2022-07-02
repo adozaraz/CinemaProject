@@ -1,9 +1,11 @@
 package com.company.cinemaproject.screen.session;
 
+import com.company.cinemaproject.app.SessionService;
 import io.jmix.ui.Notifications;
 import io.jmix.ui.screen.*;
 import com.company.cinemaproject.entity.Session;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.temporal.ChronoUnit;
@@ -12,9 +14,11 @@ import java.time.temporal.ChronoUnit;
 @UiDescriptor("session-edit.xml")
 @EditedEntityContainer("sessionDc")
 public class SessionEdit extends StandardEditor<Session> {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(SessionEdit.class);
+    private static final Logger log = LoggerFactory.getLogger(SessionEdit.class);
     @Autowired
     private Notifications notifications;
+    @Autowired
+    private SessionService sessionService;
 
     @Subscribe
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
@@ -24,6 +28,7 @@ public class SessionEdit extends StandardEditor<Session> {
             event.preventCommit();
         } else {
             event.resume();
+            sessionService.createTicketsForSession(getEditedEntity());
         }
     }
 }

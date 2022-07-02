@@ -1,8 +1,10 @@
 package com.company.cinemaproject.entity;
 
+import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,6 +29,7 @@ public class Ticket {
     @Id
     private UUID id;
 
+    @OnDeleteInverse(DeletePolicy.CASCADE)
     @JoinColumn(name = "SESSION_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -76,6 +79,14 @@ public class Ticket {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedDate;
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
     public Date getLastModifiedDate() {
         return lastModifiedDate;
     }
@@ -114,14 +125,6 @@ public class Ticket {
 
     public void setVersion(Integer version) {
         this.version = version;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public Date getDeletedDate() {
