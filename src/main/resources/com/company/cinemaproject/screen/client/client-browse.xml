@@ -36,16 +36,16 @@
                 width="800"/>
     <layout expand="clientsTable" spacing="true">
         <filter id="filter"
-                dataLoader="clientsDl">
+                dataLoader="clientsDl" caption="msg://actions.Filter">
             <properties include=".*"/>
         </filter>
         <groupTable id="clientsTable"
                     width="100%"
                     dataContainer="clientsDc">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="create" type="create" caption="msg://actions.Create"/>
+                <action id="edit" type="edit" caption="msg://actions.Edit"/>
+                <action id="remove" type="remove" caption="msg://actions.Remove"/>
             </actions>
             <columns>
                 <column id="name" caption="msg://com.company.cinemaproject.entity/Client.name"/>

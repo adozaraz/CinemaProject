@@ -32,7 +32,7 @@
                 width="800"/>
     <layout expand="theatersTable" spacing="true">
         <filter id="filter"
-                dataLoader="theatersDl">
+                dataLoader="theatersDl" caption="msg://actions.Filter">
             <properties include=".*"/>
         </filter>
         <groupTable id="theatersTable"

@@ -42,7 +42,7 @@
         </filter>
         <groupTable id="ticketsTable"
                     width="100%"
-                    dataContainer="ticketsDc">
+                    dataContainer="ticketsDc" caption="msg://actions.Filter">
             <actions>
                 <action id="create" type="create" caption="msg://actions.Create"/>
                 <action id="edit" type="edit" caption="msg://actions.Edit"/>

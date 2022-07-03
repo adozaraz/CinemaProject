@@ -50,7 +50,7 @@
                 width="800"/>
     <layout expand="sessionsTable" spacing="true">
         <filter id="filter"
-                dataLoader="sessionsDl">
+                dataLoader="sessionsDl" caption="msg://actions.Filter">
             <properties include=".*"/>
         </filter>
         <groupTable id="sessionsTable"
