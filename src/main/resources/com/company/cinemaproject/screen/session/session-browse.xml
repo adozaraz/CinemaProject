@@ -42,22 +42,22 @@
                     width="100%"
                     dataContainer="sessionsDc">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="create" type="create" caption="msg://actions.Create"/>
+                <action id="edit" type="edit" caption="msg://actions.Edit"/>
+                <action id="remove" type="remove" caption="msg://actions.Remove"/>
             </actions>
             <columns>
-                <column id="theater"/>
-                <column id="film"/>
-                <column id="timeStart"/>
-                <column id="timeStop"/>
+                <column id="theater" caption="msg://com.company.cinemaproject.entity/Session.theater"/>
+                <column id="film" caption="msg://com.company.cinemaproject.entity/Session.film"/>
+                <column id="timeStart" caption="msg://com.company.cinemaproject.entity/Session.timeStart"/>
+                <column id="timeStop" caption="msg://com.company.cinemaproject.entity/Session.timeStop"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="sessionsTable.create"/>
-                <button id="editBtn" action="sessionsTable.edit"/>
-                <button id="removeBtn" action="sessionsTable.remove"/>
+                <button id="createBtn" action="sessionsTable.create" caption="msg://actions.Create"/>
+                <button id="editBtn" action="sessionsTable.edit" caption="msg://actions.Edit"/>
+                <button id="removeBtn" action="sessionsTable.remove" caption="msg://actions.Remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

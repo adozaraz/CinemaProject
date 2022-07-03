@@ -27,13 +27,13 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="theaterDc">
             <column width="350px">
-                <textField id="nameField" property="name"/>
-                <textArea id="descriptionField" property="description" rows="5"/>
+                <textField id="nameField" property="name" caption="msg://com.company.cinemaproject.entity/Theater.name"/>
+                <textArea id="descriptionField" property="description" rows="5" caption="msg://com.company.cinemaproject.entity/Theater.description"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
-            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
-            <button id="closeBtn" action="windowClose"/>
+            <button id="commitAndCloseBtn" action="windowCommitAndClose" caption="msg://actions.CommitAndClose"/>
+            <button id="closeBtn" action="windowClose" caption="msg://actions.Close"/>
         </hbox>
     </layout>
 </window>

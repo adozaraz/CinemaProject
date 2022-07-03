@@ -30,20 +30,20 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="sessionDc">
             <column width="350px">
-                <entityPicker id="theaterField" property="theater">
+                <entityPicker id="theaterField" property="theater" caption="msg://com.company.cinemaproject.entity/Theater">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <entityPicker id="filmField" property="film">
+                <entityPicker id="filmField" property="film" caption="msg://com.company.cinemaproject.entity/Film">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <dateField id="timeStartField" property="timeStart"/>
-                <dateField id="timeStopField" property="timeStop"/>
+                <dateField id="timeStartField" property="timeStart" caption="msg://com.company.cinemaproject.entity/Session.timeStart"/>
+                <dateField id="timeStopField" property="timeStop" caption="msg://com.company.cinemaproject.entity/Session.timeStop"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

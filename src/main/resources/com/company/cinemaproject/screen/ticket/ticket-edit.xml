@@ -31,20 +31,20 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="ticketDc">
             <column width="350px">
-                <entityPicker id="sessionField" property="session">
+                <entityPicker id="sessionField" property="session" caption="msg://com.company.cinemaproject.entity/Session">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <entityPicker id="seatField" property="seat">
+                <entityPicker id="seatField" property="seat" caption="msg://com.company.cinemaproject.entity/Seat">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <textField id="costField" property="cost"/>
-                <entityPicker id="clientField" property="client">
+                <textField id="costField" property="cost" caption="msg://com.company.cinemaproject.entity/Ticket.cost"/>
+                <entityPicker id="clientField" property="client" caption="msg://com.company.cinemaproject.entity/Client">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>

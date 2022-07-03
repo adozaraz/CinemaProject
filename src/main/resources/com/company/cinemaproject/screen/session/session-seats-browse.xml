@@ -59,10 +59,10 @@
             <actions>
             </actions>
             <columns>
-                <column id="theater.name"/>
-                <column id="film.name"/>
-                <column id="timeStart"/>
-                <column id="timeStop"/>
+                <column id="theater.name" caption="msg://com.company.cinemaproject.entity/Theater.name"/>
+                <column id="film.name" caption="msg://com.company.cinemaproject.entity/Film.name"/>
+                <column id="timeStart" caption="msg://com.company.cinemaproject.entity/Session.timeStart"/>
+                <column id="timeStop" caption="msg://com.company.cinemaproject.entity/Session.timeStop"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
@@ -71,9 +71,9 @@
         </groupTable>
         <groupTable id="ticketsTable" width="100%" dataContainer="ticketsDc">
             <columns>
-                <column id="seat.row"/>
-                <column id="seat.place"/>
-                <column id="isFree" caption="Is free"/>
+                <column id="seat.row" caption="msg://com.company.cinemaproject.entity/Seat.row"/>
+                <column id="seat.place" caption="msg://com.company.cinemaproject.entity/Seat.place"/>
+                <column id="isFree" caption="msg://info.isPlaceFree"/>
             </columns>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

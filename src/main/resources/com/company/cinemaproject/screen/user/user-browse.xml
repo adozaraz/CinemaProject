@@ -39,36 +39,39 @@
                     dataContainer="usersDc"
                     multiselect="true">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
-                <action id="showRoleAssignments" type="showRoleAssignments"/>
-                <action id="showUserSubstitutions" type="showUserSubstitutions"/>
-                <action id="changePassword" type="changePassword"/>
-                <action id="resetPassword" type="resetPassword"/>
-                <action id="resetRememberMeToken" type="resetRememberMeToken"/>
+                <action id="create" type="create" caption="msg://actions.Create"/>
+                <action id="edit" type="edit" caption="msg://actions.Edit"/>
+                <action id="remove" type="remove" caption="msg://actions.Remove"/>
+                <action id="showRoleAssignments" type="showRoleAssignments"
+                        caption="msg://actions.showRoleAssignments"/>
+                <action id="showUserSubstitutions" type="showUserSubstitutions"
+                        caption="msg://actions.showUserSubstitutions"/>
+                <action id="changePassword" type="changePassword" caption="msg://actions.changePassword"/>
+                <action id="resetPassword" type="resetPassword" caption="msg://actions.resetPassword"/>
+                <action id="resetRememberMeToken" type="resetRememberMeToken"
+                        caption="msg://actions.resetRememberMeToken"/>
             </actions>
             <columns>
-                <column id="username"/>
-                <column id="firstName"/>
-                <column id="lastName"/>
-                <column id="email"/>
-                <column id="timeZoneId"/>
-                <column id="active"/>
+                <column id="username" caption="msg://com.company.cinemaproject.entity/User.username"/>
+                <column id="firstName" caption="msg://com.company.cinemaproject.entity/User.firstName"/>
+                <column id="lastName" caption="msg://com.company.cinemaproject.entity/User.lastName"/>
+                <column id="email" caption="msg://com.company.cinemaproject.entity/User.email"/>
+                <column id="timeZoneId" caption="msg://com.company.cinemaproject.entity/User.timeZoneId"/>
+                <column id="active" caption="msg://com.company.cinemaproject.entity/User.active"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="usersTable.create"/>
-                <button id="editBtn" action="usersTable.edit"/>
-                <button id="removeBtn" action="usersTable.remove"/>
-                <button id="showRoleAssignmentsBtn" action="usersTable.showRoleAssignments"/>
+                <button id="createBtn" action="usersTable.create" caption="msg://actions.Create"/>
+                <button id="editBtn" action="usersTable.edit" caption="msg://actions.Edit"/>
+                <button id="removeBtn" action="usersTable.remove" caption="msg://actions.Remove"/>
+                <button id="showRoleAssignmentsBtn" action="usersTable.showRoleAssignments" caption="msg://actions.showRoleAssignments"/>
                 <popupButton id="additionalActionsBtn" caption="msg://additional" icon="GEARS">
                     <actions>
-                        <action id="usersTable.changePassword"/>
-                        <action id="usersTable.resetPassword"/>
-                        <action id="usersTable.resetRememberMeToken"/>
-                        <action id="usersTable.showUserSubstitutions"/>
+                        <action id="usersTable.changePassword" caption="msg://actions.changePassword"/>
+                        <action id="usersTable.resetPassword" caption="msg://actions.resetPassword"/>
+                        <action id="usersTable.resetRememberMeToken" caption="msg://actions.resetRememberMeToken"/>
+                        <action id="usersTable.showUserSubstitutions" caption="msg://actions.showUserSubstitutions"/>
                     </actions>
                 </popupButton>
             </buttonsPanel>

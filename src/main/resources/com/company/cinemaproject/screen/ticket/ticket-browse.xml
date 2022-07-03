@@ -44,26 +44,26 @@
                     width="100%"
                     dataContainer="ticketsDc">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="create" type="create" caption="msg://actions.Create"/>
+                <action id="edit" type="edit" caption="msg://actions.Edit"/>
+                <action id="remove" type="remove" caption="msg://actions.Remove"/>
             </actions>
             <columns>
-                <column id="session.theater"/>
-                <column id="session.film.name"/>
-                <column id="session.film.description"/>
-                <column id="session.timeStart"/>
-                <column id="session.timeStop"/>
-                <column id="seat.row"/>
-                <column id="seat.place"/>
-                <column id="cost"/>
+                <column id="session.theater" caption="msg://com.company.cinemaproject.entity/Session.theater"/>
+                <column id="session.film.name" caption="msg://info.filmName"/>
+                <column id="session.film.description" caption="msg://info.filmDescription"/>
+                <column id="session.timeStart" caption="msg://com.company.cinemaproject.entity/Session.timeStart"/>
+                <column id="session.timeStop" caption="msg://com.company.cinemaproject.entity/Session.timeStop"/>
+                <column id="seat.row" caption="msg://com.company.cinemaproject.entity/Seat.row"/>
+                <column id="seat.place" caption="msg://com.company.cinemaproject.entity/Seat.place"/>
+                <column id="cost" caption="msg://com.company.cinemaproject.entity/Ticket.cost"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="ticketsTable.create"/>
-                <button id="editBtn" action="ticketsTable.edit"/>
-                <button id="removeBtn" action="ticketsTable.remove"/>
+                <button id="createBtn" action="ticketsTable.create" caption="msg://actions.Create"/>
+                <button id="editBtn" action="ticketsTable.edit" caption="msg://actions.Edit"/>
+                <button id="removeBtn" action="ticketsTable.remove" caption="msg://actions.Remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

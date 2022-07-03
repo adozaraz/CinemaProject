@@ -39,20 +39,20 @@
                     width="100%"
                     dataContainer="theatersDc">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="create" type="create" caption="msg://actions.Create"/>
+                <action id="edit" type="edit" caption="msg://actions.Edit"/>
+                <action id="remove" type="remove" caption="msg://actions.Remove"/>
             </actions>
             <columns>
-                <column id="name"/>
-                <column id="description"/>
+                <column id="name" caption="msg://com.company.cinemaproject.entity/Theater.name"/>
+                <column id="description" caption="msg://com.company.cinemaproject.entity/Theater.description"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="theatersTable.create"/>
-                <button id="editBtn" action="theatersTable.edit"/>
-                <button id="removeBtn" action="theatersTable.remove"/>
+                <button id="createBtn" action="theatersTable.create" caption="msg://actions.Create"/>
+                <button id="editBtn" action="theatersTable.edit" caption="msg://actions.Edit"/>
+                <button id="removeBtn" action="theatersTable.remove" caption="msg://actions.Remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

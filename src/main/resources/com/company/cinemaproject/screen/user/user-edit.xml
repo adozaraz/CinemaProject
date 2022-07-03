@@ -36,11 +36,11 @@
                                caption="msg://confirmPassword"
                                required="true"
                                visible="false"/>
-                <textField id="firstNameField" property="firstName"/>
-                <textField id="lastNameField" property="lastName"/>
-                <textField id="emailField" property="email"/>
-                <comboBox id="timeZoneField" property="timeZoneId"/>
-                <checkBox id="activeField" property="active"/>
+                <textField id="firstNameField" property="firstName" caption="msg://com.company.cinemaproject.entity/User.firstName"/>
+                <textField id="lastNameField" property="lastName" caption="msg://com.company.cinemaproject.entity/User.lastName"/>
+                <textField id="emailField" property="email" caption="msg://com.company.cinemaproject.entity/User.email"/>
+                <comboBox id="timeZoneField" property="timeZoneId" caption="msg://com.company.cinemaproject.entity/User.timeZoneId"/>
+                <checkBox id="activeField" property="active" caption="msg://com.company.cinemaproject.entity/User.active"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
