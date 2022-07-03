@@ -44,16 +44,16 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="description"/>
-                <column id="duration"/>
-                <column id="name"/>
+                <column id="name" caption="msg://com.company.cinemaproject.entity/Film.name"/>
+                <column id="description" caption="msg://com.company.cinemaproject.entity/Film.description"/>
+                <column id="duration" caption="msg://com.company.cinemaproject.entity/Film.duration"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="filmsTable.create"/>
-                <button id="editBtn" action="filmsTable.edit"/>
-                <button id="removeBtn" action="filmsTable.remove"/>
+                <button id="createBtn" action="filmsTable.create" caption="msg://actions.Create"/>
+                <button id="editBtn" action="filmsTable.edit" caption="msg://actions.Edit"/>
+                <button id="removeBtn" action="filmsTable.remove" caption="msg://actions.Remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

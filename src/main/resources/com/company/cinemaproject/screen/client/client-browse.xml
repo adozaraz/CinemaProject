@@ -48,14 +48,14 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="name"/>
+                <column id="name" caption="msg://com.company.cinemaproject.entity/Client.name"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="clientsTable.create"/>
-                <button id="editBtn" action="clientsTable.edit"/>
-                <button id="removeBtn" action="clientsTable.remove"/>
+                <button id="createBtn" caption="msg://actions.Create" action="clientsTable.create"/>
+                <button id="editBtn" caption="msg://actions.Edit" action="clientsTable.edit"/>
+                <button id="removeBtn" caption="msg://actions.Remove" action="clientsTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
