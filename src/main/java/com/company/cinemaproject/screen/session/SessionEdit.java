@@ -14,7 +14,6 @@ import java.time.temporal.ChronoUnit;
 @UiDescriptor("session-edit.xml")
 @EditedEntityContainer("sessionDc")
 public class SessionEdit extends StandardEditor<Session> {
-    private static final Logger log = LoggerFactory.getLogger(SessionEdit.class);
     @Autowired
     private Notifications notifications;
     @Autowired

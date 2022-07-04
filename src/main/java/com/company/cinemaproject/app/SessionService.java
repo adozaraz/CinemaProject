@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Service
 public class SessionService {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(SessionService.class);
     @Autowired
     private DataManager dataManager;
 
@@ -36,16 +35,17 @@ public class SessionService {
     }
 
     public boolean isAnyTicketBought(Session singleSelected) {
-        List<Ticket> tickets = dataManager.load(Ticket.class)
-                .query("select ticket from Ticket ticket where ticket.session = :session")
+        //uery("select ticket from Ticket ticket where ticket.session = :session")
+        /*return dataManager.load(Boolean.class)
+                .query("select true from Ticket ticket where ticket.session = :session and ticket.client is not null")
+                .parameter("session", singleSelected).one();*/
+        return dataManager.loadValue("select case " +
+                                "when exists (select true from Ticket ticket where ticket.session = :session " +
+                                "and ticket.client is not null) " +
+                                "then true else false end from Ticket tickets",
+                Boolean.class)
+                .store("main")
                 .parameter("session", singleSelected)
-                .list();
-        for (Ticket ticket : tickets) {
-            log.info(String.valueOf(ticket.getClient()));
-            if (ticket.getClient() != null) {
-                return true;
-            }
-        }
-        return false;
+                .one();
     }
 }
