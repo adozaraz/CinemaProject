@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class SessionService {
@@ -35,17 +36,20 @@ public class SessionService {
     }
 
     public boolean isAnyTicketBought(Session singleSelected) {
-        //uery("select ticket from Ticket ticket where ticket.session = :session")
-        /*return dataManager.load(Boolean.class)
-                .query("select true from Ticket ticket where ticket.session = :session and ticket.client is not null")
-                .parameter("session", singleSelected).one();*/
-        return dataManager.loadValue("select case " +
-                                "when exists (select true from Ticket ticket where ticket.session = :session " +
-                                "and ticket.client is not null) " +
-                                "then true else false end from Ticket tickets",
-                Boolean.class)
+        return dataManager.loadValue("select COUNT(ticket) from Ticket ticket" +
+                                " where ticket.session = :session and ticket.client is not null",
+                Long.class)
                 .store("main")
                 .parameter("session", singleSelected)
-                .one();
+                .one() != 0;
+    }
+
+    public boolean checkIfSessionExists(UUID id) {
+        return dataManager.loadValue("select COUNT(session) from Session_ session" +
+                                " where session.id = :id",
+                        Long.class)
+                .store("main")
+                .parameter("id", id)
+                .one() == 0;
     }
 }

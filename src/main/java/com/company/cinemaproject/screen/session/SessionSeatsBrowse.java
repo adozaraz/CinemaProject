@@ -24,6 +24,7 @@ public class SessionSeatsBrowse extends StandardLookup<Session> {
     private Component ticketsTableIsFreeColumnGenerator(Ticket ticket) {
         CheckBox isFree = uiComponents.create(CheckBox.class);
         isFree.setValue(ticket.getClient() == null);
+        isFree.setEnabled(false);
         return isFree;
     }
 

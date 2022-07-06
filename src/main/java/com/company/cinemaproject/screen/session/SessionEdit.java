@@ -4,8 +4,6 @@ import com.company.cinemaproject.app.SessionService;
 import io.jmix.ui.Notifications;
 import io.jmix.ui.screen.*;
 import com.company.cinemaproject.entity.Session;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.temporal.ChronoUnit;
@@ -26,8 +24,11 @@ public class SessionEdit extends StandardEditor<Session> {
             notifications.create().withCaption("Session length cannot be less that film's length").show();
             event.preventCommit();
         } else {
+            boolean toAdd = sessionService.checkIfSessionExists(getEditedEntity().getId());
             event.resume();
-            sessionService.createTicketsForSession(getEditedEntity());
+            if (toAdd) {
+                sessionService.createTicketsForSession(getEditedEntity());
+            }
         }
     }
 }
