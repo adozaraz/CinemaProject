@@ -28,6 +28,7 @@ public class Film {
     @Lob
     private String description;
 
+    @NotNull
     @Column(name = "DURATION")
     private Long duration;
 

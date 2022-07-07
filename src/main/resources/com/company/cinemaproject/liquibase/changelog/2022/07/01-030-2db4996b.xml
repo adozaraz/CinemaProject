@@ -13,4 +13,69 @@
             <column name="DURATION" type="BIGINT"/>
         </addColumn>
     </changeSet>
+    <changeSet id="3" author="CinemaProject">
+        <insert tableName="CLIENT">
+            <column name="ID" value="5b79acd4-4c95-fa47-bfee-6d151b901f81"/>
+            <column name="NAME" value="Нюша"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+        <insert tableName="CLIENT">
+            <column name="ID" value="90093431-413a-9c07-895e-e432427730aa"/>
+            <column name="NAME" value="Смешарик"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+        <insert tableName="CLIENT">
+            <column name="ID" value="def19a66-8482-f153-f3c8-be0582833d3c"/>
+            <column name="NAME" value="Шарик"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet id="4" author="CinemaProject">
+        <insert tableName="THEATER">
+            <column name="ID" value="29722d53-e912-44e1-06ae-b86fa5bbe9ae"/>
+            <column name="NAME" value="EA Sports"/>
+            <column name="DESCRIPTION" value="Корпорация зла"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet id="5" author="CinemaProject">
+        <insert tableName="SEAT">
+            <column name="ID" value="6cc192be-35c5-68d4-9c4f-8290b3e69de3"/>
+            <column name="THEATER_ID" value="29722d53-e912-44e1-06ae-b86fa5bbe9ae"/>
+            <column name="ROW_" value="1"/>
+            <column name="PLACE" value="1"/>
+            <column name="DEFAULT_COST" value="100000"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+        <insert tableName="SEAT">
+            <column name="ID" value="8645fc59-9292-f082-b1aa-a1675a055ad7"/>
+            <column name="THEATER_ID" value="29722d53-e912-44e1-06ae-b86fa5bbe9ae"/>
+            <column name="ROW_" value="1"/>
+            <column name="PLACE" value="2"/>
+            <column name="DEFAULT_COST" value="100000"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+        <insert tableName="SEAT">
+            <column name="ID" value="76e51d47-6d15-b36d-e9f7-7ab20fac8772"/>
+            <column name="THEATER_ID" value="29722d53-e912-44e1-06ae-b86fa5bbe9ae"/>
+            <column name="ROW_" value="1"/>
+            <column name="PLACE" value="3"/>
+            <column name="DEFAULT_COST" value="100000"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet id="6" author="CinemaProject">
+        <insert tableName="FILM">
+            <column name="ID" value="a25cddf7-1161-3b57-cfe1-6b00318d1b20"/>
+            <column name="NAME" value="Добродемон"/>
+            <column name="DESCRIPTION" value="Аллегории на всём белом свете"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+        <insert tableName="FILM">
+            <column name="ID" value="fbed9a58-b690-9f6c-e4a8-167b19272ef8"/>
+            <column name="NAME" value="Корпорация добра и зла"/>
+            <column name="DESCRIPTION" value="Повествования о борьбе компаний за кошельки пользователей"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

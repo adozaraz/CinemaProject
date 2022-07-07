@@ -1,6 +1,7 @@
 package com.company.cinemaproject.screen.session;
 
 import com.company.cinemaproject.app.SessionService;
+import io.jmix.core.Messages;
 import io.jmix.ui.Notifications;
 import io.jmix.ui.screen.*;
 import com.company.cinemaproject.entity.Session;
@@ -16,12 +17,14 @@ public class SessionEdit extends StandardEditor<Session> {
     private Notifications notifications;
     @Autowired
     private SessionService sessionService;
+    @Autowired
+    private Messages messages;
 
     @Subscribe
     public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
         Session editedSession = getEditedEntity();
         if (ChronoUnit.MINUTES.between(editedSession.getTimeStart(), editedSession.getTimeStop()) < getEditedEntity().getFilm().getDuration()) {
-            notifications.create().withCaption("Session length cannot be less that film's length").show();
+            notifications.create().withCaption(messages.getMessage("sessionLengthError")).show();
             event.preventCommit();
         } else {
             boolean toAdd = sessionService.checkIfSessionExists(getEditedEntity().getId());
